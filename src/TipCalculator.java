@@ -12,11 +12,17 @@ public class TipCalculator {
         double percentage = scan.nextDouble();
         scan.nextLine();
         double cost = 0;
+        double totalNoTip = 0;
         String item;
         while (cost != -1) {
+            System.out.println("How much money did " + item + " cost?");
+            cost = scan.nextDouble();
+            totalNoTip+=cost;
+            scan.nextLine();
             System.out.println("What is an item that you ordered?");
             item = scan.nextLine();
-            System.out.println("How much money did " + item + " cost?");
         }
+        System.out.println("Without a tip, your total is $" + totalNoTip +".");
+        System.out.println("With a " + percentage "% tip, your total is $" + totalNoTip +".");
     }
 }
