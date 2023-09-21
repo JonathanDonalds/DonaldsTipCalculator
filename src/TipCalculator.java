@@ -16,7 +16,7 @@ public class TipCalculator {
         while (cost != -1) {
             System.out.println("What is an item that you ordered?");
             item = scan.nextLine();
-            System.out.print
+            System.out.println("How much money did " + item + " cost?");
         }
     }
 }
