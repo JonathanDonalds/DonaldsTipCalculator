@@ -34,10 +34,12 @@ public class TipCalculator {
         BigDecimal totalTipBD = BigDecimal.valueOf(Math.round((double) percentage / 100 * totalNoTip * 100));
         totalTipBD = totalTipBD.movePointLeft( 2);
         double totalTipDouble = totalTipBD.doubleValue();
-        BigDecimal tipPerPersonBD = BigDecimal.valueOf((Math.round(totalTipDouble / people * 100)));
-        tipPerPersonBD = tipPerPersonBD.movePointLeft(2);
         double totalWithTip = totalNoTip + totalTipDouble;
         final double FLORIN_PER_DOLLAR = 1.80;
+        BigDecimal tipPerPersonBD = BigDecimal.valueOf((Math.round(totalTipDouble / people * 100)));
+        tipPerPersonBD = tipPerPersonBD.movePointLeft(2);
+        BigDecimal totalWithTipFlorin = BigDecimal.valueOf(Math.round(totalWithTip * FLORIN_PER_DOLLAR * 100));
+        totalWithTipFlorin = totalWithTipFlorin.movePointLeft(2);
 
         System.out.println("-------------------------------");
         System.out.println("Total bill before tip: $" + totalNoTip);
@@ -53,6 +55,6 @@ public class TipCalculator {
             System.out.println(s);
         }
         System.out.println("-------------------------------");
-        System.out.print("Total bill with tip (Aruban florin): " + totalWithTip * FLORIN_PER_DOLLAR + " AWG");
+        System.out.print("Total bill with tip (Aruban florin): " + totalWithTipFlorin + " AWG");
     }
 }
