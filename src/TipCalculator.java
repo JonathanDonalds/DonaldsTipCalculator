@@ -29,20 +29,23 @@ public class TipCalculator {
             Items.add(item);
         }
 
+        BigDecimal perPersonCostNoTip = BigDecimal.valueOf((Math.round(totalNoTip / people * 100)));
+        perPersonCostNoTip = perPersonCostNoTip.movePointLeft(2);
         BigDecimal totalTipBD = BigDecimal.valueOf(Math.round((double) percentage / 100 * totalNoTip * 100));
         totalTipBD = totalTipBD.movePointLeft( 2);
-        BigDecimal perPersonCostNoTipBD = BigDecimal.valueOf((Math.round(totalNoTip / people * 100)));
-        perPersonCostNoTipBD = perPersonCostNoTipBD.movePointLeft(2);
         double totalTipDouble = totalTipBD.doubleValue();
+        BigDecimal tipPerPersonBD = BigDecimal.valueOf((Math.round(totalTipDouble / people * 100)));
+        tipPerPersonBD = tipPerPersonBD.movePointLeft(2);
         double totalWithTip = totalNoTip + totalTipDouble;
         final double FLORIN_PER_DOLLAR = 1.80;
+
         System.out.println("-------------------------------");
         System.out.println("Total bill before tip: $" + totalNoTip);
         System.out.println("Total percentage: " + percentage + "%");
         System.out.println("Total tip: $" + totalTipBD);
         System.out.println("Total bill with tip: $" + (totalWithTip));
-        System.out.println("Per person cost before tip:  $" + perPersonCostNoTipBD);
-        System.out.println("Tip per person: $" + totalTipDouble / people);
+        System.out.println("Per person cost before tip: $" + perPersonCostNoTip);
+        System.out.println("Tip per person: $" + tipPerPersonBD);
         System.out.println("Total cost per person: $" + totalWithTip / people);
         System.out.println("-------------------------------");
         System.out.println("Items ordered:");
