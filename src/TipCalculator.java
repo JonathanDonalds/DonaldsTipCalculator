@@ -31,8 +31,8 @@ public class TipCalculator {
         }
 
         System.out.println(subtotal);
-        int totalNoTipVariable = intValue(Math.round(subtotal * 100));
-        System.out.println(Math.round(subtotal * 100));
+        int totalNoTipVariable = (int) (Math.round(subtotal * 100));
+        System.out.println(totalNoTipVariable);
         BigDecimal subtotalBD = BigDecimal.valueOf(totalNoTipVariable);
         subtotalBD = subtotalBD.movePointLeft(2);
         subtotal = subtotalBD.doubleValue();
