@@ -30,9 +30,7 @@ public class TipCalculator {
             Items.add(item); // Adds the name of each item ordered to a list.
         }
 
-        System.out.println(subtotal);
         int totalNoTipVariable = (int) (Math.round(subtotal * 100));
-        System.out.println(totalNoTipVariable);
         BigDecimal subtotalBD = BigDecimal.valueOf(totalNoTipVariable);
         subtotalBD = subtotalBD.movePointLeft(2);
         subtotal = subtotalBD.doubleValue();
@@ -42,6 +40,9 @@ public class TipCalculator {
         tipBD = tipBD.movePointLeft(2);
         double totalTipDouble = tipBD.doubleValue(); // Initializes the double variable (totalTipDouble) to the double value of tipBD.
         double totalWithTip = subtotal + totalTipDouble; // Combines the total cost and the tip to be the value of a double variable.
+        System.out.println(subtotal);
+        System.out.println(totalTipDouble);
+        System.out.println(Math.round(subtotal + totalTipDouble));
         final double FLORIN_PER_DOLLAR = 1.80; // Initializes the constant double variable FLORIN_PER_DOLLAR to 1.80 (which represents the Aruban florin that makes up a U.S. dollar)
         BigDecimal tipPerPersonBD = BigDecimal.valueOf(Math.round(totalTipDouble / people * 100));
         tipPerPersonBD = tipPerPersonBD.movePointLeft(2);
