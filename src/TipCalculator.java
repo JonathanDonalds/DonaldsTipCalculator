@@ -27,10 +27,12 @@ public class TipCalculator {
             scan.nextLine();
             System.out.print("Enter the item: "); // Asks for the name of an item.
             item = scan.nextLine(); // Records the name of an item ordered.
-            Items.add(item); // Adds the name of each item ordered to list.
+            Items.add(item); // Adds the name of each item ordered to a list.
         }
 
-        int totalNoTipVariable = (int) (subtotal * 100);
+        System.out.println(subtotal);
+        int totalNoTipVariable = intValue(Math.round(subtotal * 100));
+        System.out.println(Math.round(subtotal * 100));
         BigDecimal subtotalBD = BigDecimal.valueOf(totalNoTipVariable);
         subtotalBD = subtotalBD.movePointLeft(2);
         subtotal = subtotalBD.doubleValue();
