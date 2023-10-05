@@ -39,7 +39,7 @@ public class TipCalculator {
         // Ensures that the printed tip follows the syntax for U.S. dollars (USD) - $X.XX
         BigDecimal tipBD = BigDecimal.valueOf(Math.round((double) percentage / 100 * subtotal * 100));
         tipBD = tipBD.movePointLeft(2);
-        double totalTipDouble = tipBD.doubleValue(); // Initializes the double variable (totalTipDouble) to the double value of tipBD.
+        double totalTipDouble = tipBD.doubleValue();
 
         // Combines the subtotal and the tip to create the total
         BigDecimal totalWithTipBD  = subtotalBD.add(tipBD);
