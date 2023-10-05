@@ -39,37 +39,37 @@ public class TipCalculator {
         // Ensures that the printed tip follows the syntax for U.S. dollars (USD) - $X.XX
         BigDecimal tipBD = BigDecimal.valueOf(Math.round((double) percentage / 100 * subtotal * 100));
         tipBD = tipBD.movePointLeft(2);
-        double totalTipDouble = tipBD.doubleValue();
+        double tip = tipBD.doubleValue();
 
         // Combines the subtotal and the tip to create the total
-        BigDecimal totalWithTipBD  = subtotalBD.add(tipBD);
-        double totalWithTip = totalWithTipBD.doubleValue();
+        BigDecimal totalBD  = subtotalBD.add(tipBD);
+        double total = totalBD.doubleValue();
 
         // Ensures that the printed per-person subtotal follows the syntax for U.S. dollars (USD) - $X.XX
-        BigDecimal perPersonCostNoTip = BigDecimal.valueOf((Math.round(subtotal / people * 100)));
-        perPersonCostNoTip = perPersonCostNoTip.movePointLeft(2);
+        BigDecimal subtotalPerPerson = BigDecimal.valueOf((Math.round(subtotal / people * 100)));
+        subtotalPerPerson = subtotalPerPerson.movePointLeft(2);
 
         // Ensures that the printed per-person tip follows the syntax for U.S. dollars (USD) - $X.XX
-        BigDecimal tipPerPersonBD = BigDecimal.valueOf(Math.round(totalTipDouble / people * 100));
-        tipPerPersonBD = tipPerPersonBD.movePointLeft(2);
+        BigDecimal tipPerPerson = BigDecimal.valueOf(Math.round(tip / people * 100));
+        tipPerPerson = tipPerPerson.movePointLeft(2);
 
         // Ensures that the printed per-person total follows the syntax for U.S. dollars (USD) - $X.XX
-        BigDecimal totalCostPerPerson = BigDecimal.valueOf(Math.round(totalWithTip / people * 100));
-        totalCostPerPerson = totalCostPerPerson.movePointLeft(2);
+        BigDecimal totalPerPerson = BigDecimal.valueOf(Math.round(total / people * 100));
+        totalPerPerson = totalPerPerson.movePointLeft(2);
 
         // Converts the total from U.S. dollars (USD) to Aruban florin (AWG)
         final double FLORIN_PER_DOLLAR = 1.80;
-        BigDecimal totalWithTipFlorin = BigDecimal.valueOf(Math.round(totalWithTip * FLORIN_PER_DOLLAR * 100));
+        BigDecimal totalWithTipFlorin = BigDecimal.valueOf(Math.round(total * FLORIN_PER_DOLLAR * 100));
         totalWithTipFlorin = totalWithTipFlorin.movePointLeft(2);
 
         System.out.println("-------------------------------");
         System.out.println("Total bill before tip: $" + subtotalBD); // Prints the subtotal in U.S. dollars (USD)
         System.out.println("Total percentage: " + percentage + "%"); // Prints the tip percentage in U.S. dollars (USD)
         System.out.println("Total tip: $" + tipBD); // Prints the tip in U.S. dollars (USD)
-        System.out.println("Total bill with tip: $" + totalWithTip); // Prints the total in U.S. dollars (USD)
-        System.out.println("Per person cost before tip: $" + perPersonCostNoTip); // Prints the per-person subtotal in U.S. dollars (USD)
-        System.out.println("Tip per person: $" + tipPerPersonBD); // Prints the per-person tip in U.S. dollars (USD)
-        System.out.println("Total cost per person: $" + totalCostPerPerson); // Prints the per-person total in U.S. dollars (USD)
+        System.out.println("Total bill with tip: $" + total); // Prints the total in U.S. dollars (USD)
+        System.out.println("Per person cost before tip: $" + subtotalPerPerson); // Prints the per-person subtotal in U.S. dollars (USD)
+        System.out.println("Tip per person: $" + tipPerPerson); // Prints the per-person tip in U.S. dollars (USD)
+        System.out.println("Total cost per person: $" + totalPerPerson); // Prints the per-person total in U.S. dollars (USD)
         System.out.println("-------------------------------");
         System.out.println("Items ordered:");
 
